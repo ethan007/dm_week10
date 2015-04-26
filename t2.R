@@ -1,10 +1,13 @@
 ################TASK 2 
 library("NLP")
 library("tm")
+library("topicmodels")
+library("koRpus")
+
 
 
 #=========================== tf-idf ===========================
-dataframe <- read.csv(file="task1Results.csv", header= T, sep=",")
+dataframe <- read.csv(file="task1_Results.csv", header= T, sep=",")
 doc_vec <- VectorSource(dataframe[,ncol(dataframe)])
 doc_corpus <- Corpus(doc_vec)
 dtmatrix <- DocumentTermMatrix(doc_corpus)
@@ -65,7 +68,7 @@ write.csv(binary_tfidf, "Task2_SelectedFeatures.csv", row.names = F)
 
 
 #=========================== LDA ===========================
-dataframe <- read.csv(file="task1Results.csv", header= T, sep=",")
+dataframe <- read.csv(file="task1_Results.csv", header= T, sep=",")
 doc_vec <- VectorSource(dataframe[,ncol(dataframe)])
 doc_corpus <- Corpus(doc_vec)
 dtmatrix <- DocumentTermMatrix(doc_corpus)

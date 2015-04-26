@@ -3,7 +3,7 @@ library("randomForest")
 
 
 # Unfold
-task1_data <- read.csv(file="task1Results.csv", header = T, sep=",")
+task1_data <- read.csv(file="task1_Results.csv", header = T, sep=",")
 task2_data <- read.csv(file="task2_LDA&SelectedFeatures.csv", header = T, sep=",")
 
 
@@ -22,6 +22,8 @@ nrow(data) # 9042!!!!!!!!!!!!
 
 ExtendData <- data
 ExtendData[,"class"] <- NA
+rows <- nrow(ExtendData)
+#column <- ncol(extend.df)
 for (j in 1:(nrow(ExtendData)))
 {
   for (i in 2:11)
@@ -37,7 +39,7 @@ for (j in 1:(nrow(ExtendData)))
   }
   print(j)
 }
-
+#extended <- extend.df[-(1:rows),]
 Ext <- ExtendData[-(1:rows),]
 nrow(Ext) # 9990!!!!!!!!!!!
 Ext <- Ext[,-c(2:11)]
